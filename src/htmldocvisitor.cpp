@@ -2059,9 +2059,19 @@ void HtmlDocVisitor::writeDiaFile(const QCString &fileName,
   }
   baseName.prepend("dia_");
   QCString outDir = Config_getString(HTML_OUTPUT);
-  writeDiaGraphFromFile(fileName,outDir,baseName,DIA_BITMAP);
 
-  m_t << "<img src=\"" << relPath << baseName << ".png" << "\" />" << endl;
+  QString ext(".png");
+  DiaOutputFormat   format = DIA_BITMAP;
+  QCString filter = Config_getString(DIA_FILTER);
+
+  if (filter == "svg")
+  {
+    ext = ".svg";
+    format = DIA_SVG;
+  }
+  writeDiaGraphFromFile(fileName,outDir,baseName,format);
+
+  m_t << "<img src=\"" << relPath << baseName << ext << "\" />" << endl;
 }
 
 void HtmlDocVisitor::writePlantUMLFile(const QCString &fileName,

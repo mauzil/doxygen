@@ -3159,6 +3159,17 @@ to be found in the default search path.
 ]]>
       </docs>
     </option>
+    <option type='string' id='DIA_FILTER' format='string' defval=''>
+      <docs>
+<![CDATA[
+The output format from a dia file.
+The possible values are
+empty  -> PNG
+png    -> PNG
+svg    -> SVG
+]]>
+      </docs>
+    </option>
     <option type='bool' id='HIDE_UNDOC_RELATIONS' defval='1'>
       <docs>
 <![CDATA[

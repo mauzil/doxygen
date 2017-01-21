@@ -51,6 +51,11 @@ void writeDiaGraphFromFile(const char *inFile,const char *outDir,
     diaArgs+="-t eps";
     extension=".eps";
   }
+  else if (format==DIA_SVG)
+  {
+    diaArgs+="-t svg";
+    extension=".svg";
+  }
 
   diaArgs+=" -e \"";
   diaArgs+=outFile;
